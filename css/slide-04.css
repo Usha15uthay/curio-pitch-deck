@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Slide 04 — Everyone feels it, no one sees it all
+   ========================================================================== */
+
+#slide-04 .pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+#slide-04 .pain-card {
+  background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+#slide-04 .pain-who {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-coral-bright);
+  margin: 0;
+}
+
+#slide-04 .pain-line {
+  font-size: var(--fs-lede);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2);
+}
+
+#slide-04 .pain-card .stat-number {
+  margin: var(--space-1) 0 0;
+}
+
+#slide-04 .pain-detail {
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+#slide-04 .pain-source {
+  font-size: 0.75rem;
+  color: var(--color-ink-faint);
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+@media (max-width: 760px) {
+  #slide-04 .pain-grid {
+    grid-template-columns: 1fr;
+  }
+}

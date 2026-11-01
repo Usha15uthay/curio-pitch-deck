@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Slide 05 — Curio: a coach, not an answer machine
+   ========================================================================== */
+
+#slide-05 .sol-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+#slide-05 .chat-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--gradient-brand);
+  color: var(--color-ink);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg) var(--radius-lg) 0.25rem var(--radius-lg);
+  box-shadow: var(--shadow-glow-indigo);
+  max-width: 19rem;
+  flex-shrink: 0;
+}
+
+#slide-05 .chat-bubble p {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#slide-05 .chat-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-ink);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+#slide-05 .pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+#slide-05 .pillar-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+#slide-05 .pillar-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+#slide-05 .pillar-detail {
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+#slide-05 .sol-callout {
+  font-size: var(--fs-lede);
+  color: var(--color-ink);
+  font-weight: 450;
+  max-width: 54rem;
+}
+
+#slide-05 .sol-callout .underline-draw {
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+#slide-05 .sol-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  border-top: 1px solid var(--color-surface-border);
+  padding-top: var(--space-4);
+}
+
+@media (max-width: 760px) {
+  #slide-05 .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+  #slide-05 .sol-top {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Slide 12 — "From prototype to 175 GTA schools" (roadmap)
+   ========================================================================== */
+
+#slide-12 .slide-inner { gap: var(--space-5); }
+
+#slide-12 .s12-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+#slide-12 .s12-timeline {
+  position: relative;
+  padding-top: var(--space-5);
+}
+
+#slide-12 .s12-line {
+  position: absolute;
+  top: 0.4rem;
+  left: 0;
+  width: 100%;
+  height: 1.25rem;
+  overflow: visible;
+}
+
+#slide-12 .s12-milestones {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+#slide-12 .s12-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: var(--space-4);
+}
+
+#slide-12 .s12-dot {
+  position: absolute;
+  margin-top: -1.55rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--color-coral);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-surface-border-strong);
+}
+
+#slide-12 .s12-dot-final {
+  background: var(--color-gold);
+  box-shadow: 0 0 0 2px var(--color-surface-border-strong), 0 0 16px 2px rgba(255, 194, 75, 0.6);
+}
+
+#slide-12 .s12-date {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#slide-12 .s12-done {
+  font-style: normal;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mint);
+  background: rgba(61, 220, 151, 0.12);
+  border-radius: var(--radius-pill);
+  padding: 0.1rem 0.45rem;
+}
+
+#slide-12 .s12-title {
+  font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.15rem);
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+}
+
+#slide-12 .s12-desc {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  line-height: 1.4;
+}
+
+#slide-12 .s12-risks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-surface-border);
+}
+
+#slide-12 .s12-risk-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+#slide-12 .s12-risk {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+}
+
+#slide-12 .s12-risk-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-coral-bright);
+}
+
+#slide-12 .s12-risk-arrow {
+  color: var(--color-ink-faint);
+  font-size: 0.8rem;
+}
+
+#slide-12 .s12-risk-fix {
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  #slide-12 .s12-milestones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #slide-12 .s12-line { display: none; }
+  #slide-12 .s12-risk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

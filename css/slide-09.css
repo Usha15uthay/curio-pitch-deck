@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Slide 09 — Competitive comparison ("Our edge is the combination")
+   All selectors scoped under #slide-09.
+   ========================================================================== */
+
+#slide-09 .sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#slide-09 .cmp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.3rem;
+  font-size: clamp(0.72rem, 0.35vw + 0.66rem, 0.88rem);
+}
+
+#slide-09 .cmp-table__caption {
+  caption-side: top;
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+#slide-09 .cmp-table thead th {
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-soft);
+  text-align: center;
+}
+
+#slide-09 .cmp-table__row-head {
+  width: clamp(11rem, 20vw, 16rem);
+}
+
+#slide-09 .cmp-table tbody th[scope="row"] {
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.85em;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  line-height: 1.25;
+}
+
+#slide-09 .cmp-table tbody td {
+  text-align: center;
+  padding: var(--space-2) var(--space-2);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+#slide-09 .cmp-table tbody td:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+#slide-09 .cmp-glyph {
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 0.2em;
+}
+
+#slide-09 .cmp-yes { color: var(--color-ink); }
+#slide-09 .cmp-yes .cmp-glyph { color: var(--color-mint); }
+#slide-09 .cmp-no { color: var(--color-ink-faint); }
+#slide-09 .cmp-no .cmp-glyph { color: var(--color-coral); }
+#slide-09 .cmp-partly { color: var(--color-gold); font-weight: 600; }
+#slide-09 .cmp-unknown { color: var(--color-ink-faint); opacity: 0.6; }
+
+#slide-09 .cmp-table__col-curio {
+  position: relative;
+  background: var(--gradient-brand-soft);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+#slide-09 .cmp-table thead .cmp-table__col-curio {
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--gradient-brand-soft);
+}
+
+#slide-09 .cmp-table tbody tr:last-child .cmp-table__col-curio {
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+#slide-09 .cmp-table__col-curio::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-image: var(--gradient-brand) 1;
+  pointer-events: none;
+}
+
+#slide-09 .cmp-wordmark {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-surface-border-strong);
+  background: var(--color-surface-2);
+  font-family: var(--font-display);
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+#slide-09 .cmp-moat {
+  text-align: center;
+  font-size: var(--fs-lede);
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+#slide-09 .cmp-moat .underline-draw {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+#slide-09 .cmp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding-top: var(--space-1);
+}
+
+@media (max-width: 900px) {
+  #slide-09 .cmp-table { font-size: 0.65rem; }
+  #slide-09 .cmp-table tbody th[scope="row"] { font-size: 0.75em; }
+}

@@ -1,0 +1,322 @@
+/* ==========================================================================
+   Curio Pitch Deck — Animation & Motion Utility Library
+   ----------------------------------------------------------------------
+   A reusable class API consumed directly by slide markup (slides/*.html).
+   Every utility here has a fully visible, correctly laid-out resting state
+   with zero JS/animation support — resting states hide via opacity/transform
+   only, never display:none or visibility:hidden (base.css owns slide-level
+   visibility). prefers-reduced-motion is globally neutralised in base.css;
+   nothing below is required for comprehension of any slide.
+
+   Class API (names are a contract with the slide authors — do not rename):
+     .reveal-up / .reveal-down / .reveal-left / .reveal-right
+     .reveal-scale
+     .reveal-fade
+     .float
+     .glow-pulse
+     .draw-line        (requires <path pathLength="1"> on the SVG path)
+     .tilt-card
+     .chip-pop
+     .shimmer
+     .underline-draw   (wrap the phrase: <span class="underline-draw">…</span>)
+   Stagger convention: author sets inline `style="--d:0"`, `style="--d:1"`...
+   on siblings; every entrance animation below reads that via
+   `animation-delay: calc(var(--d, 0) * var(--stagger-step));`.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------- */
+/* Directional reveals: .reveal-up / .reveal-down / .reveal-left / .reveal-right */
+/* ---------------------------------------------------------------------- */
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-fade {
+  /* Resting state (also the "JS/animation unsupported" state): fully visible. */
+  opacity: 1;
+}
+
+.reveal-up { transform: translateY(26px); opacity: 0; }
+.reveal-down { transform: translateY(-26px); opacity: 0; }
+.reveal-left { transform: translateX(26px); opacity: 0; }
+.reveal-right { transform: translateX(-26px); opacity: 0; }
+.reveal-scale { transform: scale(0.92); opacity: 0; }
+.reveal-fade { opacity: 0; }
+
+.slide.is-active .reveal-up,
+.slide.is-active.replay .reveal-up {
+  animation: reveal-up var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+.slide.is-active .reveal-down,
+.slide.is-active.replay .reveal-down {
+  animation: reveal-down var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+.slide.is-active .reveal-left,
+.slide.is-active.replay .reveal-left {
+  animation: reveal-left var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+.slide.is-active .reveal-right,
+.slide.is-active.replay .reveal-right {
+  animation: reveal-right var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+.slide.is-active .reveal-scale,
+.slide.is-active.replay .reveal-scale {
+  animation: reveal-scale var(--dur-slow) var(--ease-out-back) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+.slide.is-active .reveal-fade,
+.slide.is-active.replay .reveal-fade {
+  animation: reveal-fade var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+
+@keyframes reveal-up {
+  from { transform: translateY(26px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes reveal-down {
+  from { transform: translateY(-26px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+@keyframes reveal-left {
+  from { transform: translateX(26px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes reveal-right {
+  from { transform: translateX(-26px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes reveal-scale {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes reveal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Progressive enhancement: give newly-activated elements a native enter
+   transition where @starting-style is available, so attribute/display
+   changes made by slide scripts (if any) also animate in gracefully. */
+@supports (transition-behavior: allow-discrete) {
+  .reveal-up, .reveal-down, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade {
+    transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo);
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .float — continuous gentle bob for decorative/mascot elements           */
+/* Always animating; not gated by .is-active.                             */
+/* ---------------------------------------------------------------------- */
+.float {
+  animation: float-bob 5s var(--ease-in-out) infinite;
+}
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .glow-pulse — soft pulsing emphasis glow for one hero stat/CTA          */
+/* Resting state has a visible (non-zero) glow so nothing looks broken.   */
+/* ---------------------------------------------------------------------- */
+/* Uses filter: drop-shadow() rather than box-shadow so the glow hugs the
+   rendered glyphs/shape of its content (no visible rectangle around text
+   set on headings, gradient wordmarks, background-clip:text, etc). */
+.glow-pulse {
+  filter: drop-shadow(0 0 18px rgba(124, 108, 240, calc(var(--glow-opacity, 0.4) * 0.85))) drop-shadow(0 0 38px rgba(255, 107, 87, calc(var(--glow-opacity, 0.4) * 0.45)));
+  animation: glow-pulse 3.2s var(--ease-in-out) infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% {
+    --glow-opacity: 0.35;
+    filter: drop-shadow(0 0 14px rgba(124, 108, 240, 0.3)) drop-shadow(0 0 30px rgba(255, 107, 87, 0.16));
+  }
+  50% {
+    --glow-opacity: 0.75;
+    filter: drop-shadow(0 0 26px rgba(124, 108, 240, 0.65)) drop-shadow(0 0 48px rgba(255, 107, 87, 0.32));
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .draw-line — hand-drawn SVG stroke reveal.                              */
+/* Usage: <svg><path class="draw-line" pathLength="1" d="..." /></svg>     */
+/* Author MUST set pathLength="1" on the <path> so the dash math below     */
+/* (dasharray/dashoffset of 1) maps to the whole stroke length regardless  */
+/* of actual path geometry.                                                */
+/* Resting state: stroke fully drawn (dashoffset 0) so it never looks      */
+/* like a broken/missing line before activation.                          */
+/* ---------------------------------------------------------------------- */
+.draw-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.slide.is-active .draw-line,
+.slide.is-active.replay .draw-line {
+  animation: draw-line var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+@keyframes draw-line {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .tilt-card — premium hover lift + subtle 3D tilt                        */
+/* Pointer-driven via --rx/--ry custom properties an author's tiny JS      */
+/* snippet may set on pointermove; defaults to a graceful static lift when */
+/* no JS sets them. Fine-pointer hover only; resting state is flat.        */
+/* ---------------------------------------------------------------------- */
+.tilt-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform: perspective(800px) rotateX(0) rotateY(0) translateY(0);
+  transition: transform var(--dur-base) var(--ease-out-expo), box-shadow var(--dur-base) var(--ease-out-expo);
+  will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+  .tilt-card:hover {
+    transform: perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px);
+    box-shadow: var(--shadow-glow-indigo);
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .chip-pop — bouncy scale-in entrance for pills/chips/badges             */
+/* ---------------------------------------------------------------------- */
+.chip-pop {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.slide.is-active .chip-pop,
+.slide.is-active.replay .chip-pop {
+  animation: chip-pop var(--dur-base) var(--ease-out-back) both;
+  animation-delay: calc(var(--d, 0) * var(--stagger-step));
+}
+@keyframes chip-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .shimmer — slow diagonal light-sweep sheen, e.g. a "most popular" badge */
+/* Resting state (no animation support): flat gradient, fully legible.    */
+/* ---------------------------------------------------------------------- */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 48%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.35) 52%,
+    transparent 70%
+  );
+  background-size: 220% 220%;
+  background-position: -60% -60%;
+  animation: shimmer-sweep 3.6s ease-in-out infinite;
+}
+@keyframes shimmer-sweep {
+  0% { background-position: -60% -60%; }
+  55%, 100% { background-position: 160% 160%; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* .underline-draw — animated accent underline beneath an inline phrase    */
+/* Markup: wrap just the phrase, e.g. <span class="underline-draw">text</span> */
+/* Implemented as a ::after bar positioned under the inline span; draws    */
+/* left-to-right via scaleX transform-origin when the slide activates.    */
+/* Resting state: bar fully drawn (scaleX(1)) so the phrase always reads   */
+/* as intentionally underlined even without animation support.            */
+/* ---------------------------------------------------------------------- */
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 0.12em;
+  border-radius: var(--radius-pill);
+  background: var(--gradient-brand);
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+.slide.is-active .underline-draw::after,
+.slide.is-active.replay .underline-draw::after {
+  animation: underline-draw var(--dur-slow) var(--ease-out-expo) both;
+  animation-delay: calc((var(--d, 0) * var(--stagger-step)) + 180ms);
+}
+@keyframes underline-draw {
+  from { transform: scaleX(0); transform-origin: left center; }
+  to   { transform: scaleX(1); transform-origin: left center; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* View Transitions: persistent chrome continuity                         */
+/* Guarded so unsupported browsers simply keep the default (none) naming  */
+/* already set in base.css, falling back to the .no-vt cross-fade there.  */
+/* ---------------------------------------------------------------------- */
+@supports (view-transition-name: none) {
+  .brand-mark {
+    view-transition-name: brand-mark;
+  }
+  .progress-fill {
+    view-transition-name: progress-fill;
+  }
+
+  /* Persistent elements should morph/stay put rather than cross-fade. */
+  ::view-transition-group(brand-mark),
+  ::view-transition-group(progress-fill) {
+    animation-duration: var(--dur-base);
+  }
+  ::view-transition-old(brand-mark),
+  ::view-transition-new(brand-mark),
+  ::view-transition-old(progress-fill),
+  ::view-transition-new(progress-fill) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  /* A touch more character than the stock cross-fade for the whole-slide
+     transition, kept brisk (<550ms) and low-amplitude for a pitch deck:
+     soft fade + a very slight scale/lift rather than a plain dissolve. */
+  ::view-transition-old(root) {
+    animation: curio-vt-out 380ms var(--ease-in-out) both;
+  }
+  ::view-transition-new(root) {
+    animation: curio-vt-in 480ms var(--ease-out-expo) both;
+  }
+
+  @keyframes curio-vt-out {
+    from { opacity: 1; transform: scale(1); }
+    to   { opacity: 0; transform: scale(1.015); }
+  }
+  @keyframes curio-vt-in {
+    from { opacity: 0; transform: scale(0.985); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Reduced motion: base.css already neutralises animation/transition      */
+/* durations globally. Nothing above relies on motion for comprehension — */
+/* all content is present and legible in every resting state.             */
+/* ---------------------------------------------------------------------- */

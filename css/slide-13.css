@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Slide 13 — "Thank you" (closing ask)
+   ========================================================================== */
+
+#slide-13 .s13-inner {
+  position: relative;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+}
+
+#slide-13 .s13-decor {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 0;
+}
+#slide-13 .s13-decor-sparkle-1 { top: 4%; left: 8%; width: clamp(1.5rem, 3vw, 2.75rem); }
+#slide-13 .s13-decor-sparkle-2 { top: 10%; right: 10%; width: clamp(1.25rem, 2.5vw, 2.25rem); }
+#slide-13 .s13-decor-confetti { top: -9%; left: 50%; transform: translateX(-50%); width: clamp(7rem, 14vw, 11rem); opacity: 0.22; }
+#slide-13 .s13-decor-star { bottom: 8%; left: 6%; width: clamp(1.5rem, 3vw, 2.5rem); }
+
+#slide-13 .s13-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+#slide-13 .s13-headline {
+  font-size: var(--fs-display);
+}
+
+#slide-13 .s13-subhead {
+  max-width: 38rem;
+}
+
+#slide-13 .underline-draw {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+#slide-13 .s13-body {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+#slide-13 .s13-ask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+#slide-13 .s13-ask-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+#slide-13 .s13-ask-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.1rem;
+}
+
+#slide-13 .s13-check {
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--gradient-mint-sky);
+  color: #0d0a1f;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+#slide-13 .s13-mascots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+#slide-13 .s13-mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#slide-13 .s13-mascot-avatar {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+}
+
+#slide-13 .s13-mascot-nova { background: var(--gradient-gold-coral); }
+#slide-13 .s13-mascot-zip { background: var(--gradient-brand); }
+#slide-13 .s13-mascot-kiko { background: var(--gradient-mint-sky); }
+#slide-13 .s13-mascot-bao {
+  background: var(--color-surface-2);
+  border: 2px solid var(--color-ink-soft);
+  color: var(--color-ink);
+}
+
+#slide-13 .s13-mascot-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+#slide-13 .s13-mascot-role {
+  font-size: 0.7rem;
+  color: var(--color-ink-faint);
+}
+
+#slide-13 .s13-credit {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--color-ink-faint);
+}
+
+@media (max-width: 760px) {
+  #slide-13 .s13-mascots { flex-wrap: wrap; row-gap: var(--space-4); }
+  #slide-13 .s13-decor-confetti { display: none; }
+}

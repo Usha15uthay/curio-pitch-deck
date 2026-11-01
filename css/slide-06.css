@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Slide 06 — How it works: hints, never answers
+   ========================================================================== */
+
+#slide-06 .demo-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-7);
+  align-items: stretch;
+}
+
+/* ---- Mock product UI ---- */
+#slide-06 .mock-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+#slide-06 .mock-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin: 0;
+}
+
+#slide-06 .mock-question {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2);
+}
+
+#slide-06 .mock-choices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+#slide-06 .mock-choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-surface-border);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  color: var(--color-ink);
+  transition: transform var(--dur-fast) var(--ease-out-back), border-color var(--dur-fast), background var(--dur-fast);
+}
+
+#slide-06 .mock-choice:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-indigo-bright);
+  background: var(--color-surface);
+}
+
+#slide-06 .mock-hint {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  background: var(--gradient-brand-soft);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-1);
+}
+
+#slide-06 .mock-hint-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-mint);
+}
+
+#slide-06 .mock-hint p {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: var(--fs-body);
+  font-weight: 500;
+}
+
+/* ---- Hint ladder ---- */
+#slide-06 .ladder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-2);
+}
+
+#slide-06 .ladder-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+#slide-06 .ladder-line {
+  position: absolute;
+  top: 3.25rem;
+  left: 1.1rem;
+  width: 2px;
+  height: calc(100% - 7rem);
+  overflow: visible;
+}
+
+#slide-06 .ladder-line path {
+  stroke: var(--color-indigo-bright);
+  stroke-width: 2;
+  fill: none;
+}
+
+#slide-06 .ladder-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+#slide-06 .ladder-steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+}
+
+#slide-06 .ladder-num {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border-strong);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+#slide-06 .ladder-caption {
+  font-size: var(--fs-lede);
+  color: var(--color-ink);
+  font-weight: 600;
+  margin-top: var(--space-2);
+}
+
+#slide-06 .ladder-caption .underline-draw {
+  color: var(--color-coral-bright);
+}
+
+/* ---- Badge row ---- */
+#slide-06 .badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+#slide-06 .disclaimer {
+  font-size: 0.7rem;
+  color: var(--color-ink-faint);
+  opacity: 0.7;
+}
+
+@media (max-width: 760px) {
+  #slide-06 .demo-grid {
+    grid-template-columns: 1fr;
+  }
+  #slide-06 .mock-choices {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #slide-06 .ladder-line {
+    display: none;
+  }
+}

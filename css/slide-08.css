@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Slide 08 — Market size ("$6M in Canada, starting with the GTA")
+   All selectors scoped under #slide-08.
+   ========================================================================== */
+
+#slide-08 .market-layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: clamp(1.5rem, 4vw, var(--space-8));
+  align-items: center;
+}
+
+#slide-08 .market-funnel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+#slide-08 .market-tier {
+  width: 100%;
+  background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+  border: 1px solid var(--color-surface-border);
+  border-left: 3px solid var(--color-indigo);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+  box-shadow: var(--shadow-soft);
+}
+
+#slide-08 .market-tier--sam {
+  width: 84%;
+  border-left-color: var(--color-coral);
+}
+
+#slide-08 .market-tier--som {
+  width: 66%;
+  border-left-color: var(--color-gold);
+}
+
+#slide-08 .market-tier__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+#slide-08 .market-tier__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+#slide-08 .market-tier__number {
+  font-size: clamp(1.5rem, 1.8vw + 1rem, 2.4rem);
+  white-space: nowrap;
+}
+
+#slide-08 .market-tier--som .market-tier__number {
+  font-size: clamp(1.1rem, 1.1vw + 0.9rem, 1.6rem);
+}
+
+#slide-08 .market-tier__detail {
+  margin-top: var(--space-1);
+  color: var(--color-ink-faint);
+  font-size: 0.85rem;
+}
+
+#slide-08 .market-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+#slide-08 .market-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-md);
+}
+
+#slide-08 .market-stat__number {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem);
+}
+
+#slide-08 .market-stat__label {
+  color: var(--color-ink-soft);
+  font-size: 0.85rem;
+}
+
+#slide-08 .market-footer {
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-surface-border);
+}
+
+@media (max-width: 900px) {
+  #slide-08 .market-layout { grid-template-columns: 1fr; }
+  #slide-08 .market-tier, #slide-08 .market-tier--sam, #slide-08 .market-tier--som { width: 100%; }
+  #slide-08 .market-side { flex-direction: row; }
+}

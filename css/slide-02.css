@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Slide 02 — "sound familiar?" (Maya persona timeline)
+   ========================================================================== */
+
+#slide-02 .slide-inner {
+  gap: var(--space-5);
+}
+
+#slide-02 .persona-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+#slide-02 .persona-byline {
+  font-family: var(--font-display);
+  font-size: var(--fs-lede);
+  color: var(--color-ink-soft);
+}
+
+#slide-02 .persona-disclaimer {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint);
+  opacity: 0.8;
+}
+
+#slide-02 .persona-disclaimer em {
+  font-style: italic;
+}
+
+/* ---- Timeline ---- */
+#slide-02 .timeline {
+  position: relative;
+  padding-top: var(--space-2);
+}
+
+#slide-02 .timeline-connector {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 2px;
+  height: calc(100% - 1.2rem);
+  overflow: visible;
+}
+
+#slide-02 .timeline-connector path {
+  stroke: var(--color-surface-border-strong);
+  stroke-width: 2;
+  fill: none;
+}
+
+#slide-02 .timeline-connector path.draw-line {
+  stroke: var(--color-indigo-bright);
+}
+
+#slide-02 .timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+#slide-02 .timeline-row {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(6rem, auto) 1fr;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+#slide-02 .timeline-dot {
+  justify-self: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-surface-border-strong);
+}
+
+#slide-02 .timeline-dot--end {
+  background: var(--color-coral);
+}
+
+#slide-02 .timeline-time {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.03em;
+  color: var(--color-indigo-bright);
+  white-space: nowrap;
+}
+
+#slide-02 .timeline-row:nth-child(2) .timeline-time { color: var(--color-coral-bright); }
+#slide-02 .timeline-row:nth-child(3) .timeline-time { color: var(--color-gold); }
+#slide-02 .timeline-row:nth-child(4) .timeline-time { color: var(--color-coral); }
+
+#slide-02 .timeline-text {
+  font-size: var(--fs-lede);
+  color: var(--color-ink);
+  font-weight: 450;
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="curio-blob2-grad" x1="10" y1="190" x2="190" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3ddc97"/>
+      <stop offset="100%" stop-color="#ffc24b"/>
+    </linearGradient>
+  </defs>
+  <path d="M46.8 24.5C74.4 9.6 108.2 10.3 135.1 25.9C162 41.5 182 71.9 183.6 103.3C185.2 134.7 168.4 167.1 140.5 181.4C112.6 195.7 73.6 191.9 47.4 174.8C21.2 157.7 7.8 127.3 9.9 97.6C12 67.9 19.2 39.4 46.8 24.5Z"
+        fill="url(#curio-blob2-grad)"/>
+</svg>

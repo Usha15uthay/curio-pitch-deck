@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Slide 10 — "Teachers first, then schools, then boards" (go-to-market)
+   ========================================================================== */
+
+#slide-10 .s10-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+#slide-10 .s10-headline {
+  max-width: 44rem;
+}
+
+#slide-10 .s10-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+#slide-10 .s10-stage {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  min-width: 0;
+}
+
+#slide-10 .s10-stage-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+#slide-10 .s10-stage-index {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-body);
+}
+
+#slide-10 .s10-stage-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-indigo-bright);
+}
+
+#slide-10 .s10-stage-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.15;
+}
+
+#slide-10 .s10-stage-desc {
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+  line-height: 1.4;
+}
+
+#slide-10 .s10-chip {
+  align-self: flex-start;
+  background: var(--color-surface-2);
+  border-color: var(--color-surface-border-strong);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+#slide-10 .s10-stage-meta {
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-surface-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+#slide-10 .s10-tag {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mint);
+}
+
+#slide-10 .s10-detail {
+  font-size: 0.85rem;
+  color: var(--color-ink-faint);
+  line-height: 1.4;
+}
+
+#slide-10 .s10-connector {
+  flex: 0 0 clamp(2rem, 4vw, 4.5rem);
+  align-self: center;
+  width: clamp(2rem, 4vw, 4.5rem);
+  height: 1.5rem;
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  #slide-10 .s10-flow { flex-direction: column; }
+  #slide-10 .s10-connector { display: none; }
+}

@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Slide 11 — "Built by learners, for learners" (team)
+   ========================================================================== */
+
+#slide-11 .s11-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+#slide-11 .s11-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+#slide-11 .s11-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-5);
+}
+
+#slide-11 .s11-avatar {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+}
+
+#slide-11 .s11-avatar-brand { background: var(--gradient-brand); }
+#slide-11 .s11-avatar-mint { background: var(--gradient-mint-sky); }
+#slide-11 .s11-avatar-gold { background: var(--gradient-gold-coral); }
+
+#slide-11 .s11-name {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+#slide-11 .s11-role {
+  font-weight: 600;
+  color: var(--color-ink);
+  background: var(--color-surface-2);
+  border-color: var(--color-surface-border-strong);
+}
+
+#slide-11 .s11-focus {
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+  line-height: 1.45;
+}
+
+#slide-11 .s11-support {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-surface-border);
+}
+
+#slide-11 .s11-support-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+#slide-11 .s11-support-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-coral-bright);
+}
+
+#slide-11 .s11-support-text {
+  font-size: var(--fs-body);
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 900px) {
+  #slide-11 .s11-grid { grid-template-columns: 1fr; }
+  #slide-11 .s11-support { grid-template-columns: 1fr; }
+}

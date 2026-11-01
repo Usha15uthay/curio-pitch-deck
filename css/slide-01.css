@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Slide 01 — Cover
+   ========================================================================== */
+
+#slide-01 .slide-inner {
+  gap: var(--space-5);
+}
+
+#slide-01 .wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+#slide-01 .subhead {
+  max-width: 40rem;
+}
+
+#slide-01 .audience-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+#slide-01 .audience-pills .pill {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#slide-01 .audience-pills .pill:nth-child(1) { border-color: rgba(124, 108, 240, 0.4); color: var(--color-indigo-bright); }
+#slide-01 .audience-pills .pill:nth-child(2) { border-color: rgba(255, 107, 87, 0.4); color: var(--color-coral-bright); }
+#slide-01 .audience-pills .pill:nth-child(3) { border-color: rgba(255, 194, 75, 0.4); color: var(--color-gold); }
+
+/* ---- Mascot row ---- */
+#slide-01 .mascot-row {
+  display: flex;
+  gap: clamp(var(--space-5), 3vw, var(--space-8));
+  margin-top: var(--space-2);
+}
+
+#slide-01 .mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+  width: clamp(4.5rem, 7vw, 6rem);
+}
+
+#slide-01 .mascot-avatar {
+  position: relative;
+  width: clamp(3.4rem, 4.5vw, 4.5rem);
+  height: clamp(3.4rem, 4.5vw, 4.5rem);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#slide-01 .mascot-initial {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  color: var(--color-bg);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+#slide-01 .mascot-avatar--nova { background: var(--gradient-gold-coral); }
+#slide-01 .mascot-avatar--zip  { background: linear-gradient(135deg, var(--color-sky) 0%, var(--color-indigo) 100%); }
+#slide-01 .mascot-avatar--kiko { background: var(--gradient-mint-sky); }
+#slide-01 .mascot-avatar--bao  { background: var(--gradient-brand); }
+
+/* decorative icon accents */
+#slide-01 .mascot-icon {
+  position: absolute;
+  display: block;
+}
+
+#slide-01 .mascot-icon--star {
+  top: -0.25rem;
+  right: -0.15rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--color-ink);
+  clip-path: polygon(50% 0%, 63% 35%, 100% 38%, 72% 60%, 82% 98%, 50% 76%, 18% 98%, 28% 60%, 0% 38%, 37% 35%);
+}
+
+#slide-01 .mascot-icon--bolt {
+  top: -0.3rem;
+  right: -0.2rem;
+  width: 0.7rem;
+  height: 1rem;
+  background: var(--color-gold);
+  clip-path: polygon(55% 0%, 0% 60%, 40% 60%, 35% 100%, 100% 35%, 55% 35%);
+}
+
+#slide-01 .mascot-icon--board {
+  bottom: -0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 0.4rem;
+  background: var(--color-ink);
+  border-radius: var(--radius-pill);
+}
+
+#slide-01 .mascot-icon--ears {
+  top: -0.3rem;
+  left: 0;
+  width: 100%;
+  height: 0.9rem;
+}
+#slide-01 .mascot-icon--ears span {
+  position: absolute;
+  top: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--color-ink);
+}
+#slide-01 .mascot-icon--ears span:first-child { left: -0.1rem; }
+#slide-01 .mascot-icon--ears span:last-child { right: -0.1rem; }
+
+#slide-01 .mascot-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+#slide-01 .mascot-role {
+  font-size: 0.7rem;
+  color: var(--color-ink-faint);
+}
+
+#slide-01 .credit-line {
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+@media (max-width: 760px) {
+  #slide-01 .mascot-row { gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
+}

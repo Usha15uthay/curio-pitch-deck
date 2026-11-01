@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="curio-star-grad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffc24b"/>
+      <stop offset="100%" stop-color="#ff6b57"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 4
+           C52.5 28 54 38 62 46 C70 54 80 55.5 96 58
+           C80 60.5 70 62 62 70 C54 78 52.5 88 50 96
+           C47.5 88 46 78 38 70 C30 62 20 60.5 4 58
+           C20 55.5 30 54 38 46 C46 38 47.5 28 50 4 Z"
+        fill="url(#curio-star-grad)"/>
+</svg>
